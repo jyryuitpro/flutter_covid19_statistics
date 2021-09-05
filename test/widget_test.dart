@@ -10,7 +10,7 @@ import 'package:xml/xml.dart';
 
 void main() {
   final bookshelfXml =
-      '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <response>
     <header>
         <resultCode>00</resultCode>
@@ -62,9 +62,11 @@ void main() {
     final items = document.findAllElements('item');
     var covid19Statistics = <Covid19StatisticsModel>[];
     items.forEach((node) {
+      // print('>>>>> $node');
       covid19Statistics.add(Covid19StatisticsModel.fromXml(node));
     });
-    print(covid19Statistics.length);
+    // print('<<<<<$covid19Statistics');
+    // print(covid19Statistics.length);
     covid19Statistics.forEach((covid19) {
       print('${covid19.stateDt} : ${covid19.decideCnt}');
     });
@@ -89,19 +91,19 @@ class Covid19StatisticsModel {
 
   Covid19StatisticsModel(
       {this.accDefRate,
-      this.accExamCnt,
-      this.accExamCompCnt,
-      this.careCnt,
-      this.clearCnt,
-      this.createDt,
-      this.deathCnt,
-      this.decideCnt,
-      this.examCnt,
-      this.resutlNegCnt,
-      this.seq,
-      this.stateDt,
-      this.stateTime,
-      this.updateDt});
+        this.accExamCnt,
+        this.accExamCompCnt,
+        this.careCnt,
+        this.clearCnt,
+        this.createDt,
+        this.deathCnt,
+        this.decideCnt,
+        this.examCnt,
+        this.resutlNegCnt,
+        this.seq,
+        this.stateDt,
+        this.stateTime,
+        this.updateDt});
 
   factory Covid19StatisticsModel.fromXml(XmlElement xml) {
     return Covid19StatisticsModel(

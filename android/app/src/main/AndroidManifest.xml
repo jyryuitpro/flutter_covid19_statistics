@@ -2,6 +2,7 @@
     package="com.example.flutter_covid19_statistics">
    <application
         android:label="flutter_covid19_statistics"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
